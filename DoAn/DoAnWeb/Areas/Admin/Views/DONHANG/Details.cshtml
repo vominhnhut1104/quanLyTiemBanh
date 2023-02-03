@@ -1,0 +1,51 @@
+﻿@model DoAnWeb.Models.DONHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DONHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYGIAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYGIAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONGGIATIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONGGIATIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USER.USER_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USER.USER_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SODH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

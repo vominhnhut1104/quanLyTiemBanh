@@ -1,0 +1,51 @@
+﻿@model DoAnWeb.Models.CTDH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CTDH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THANHTIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHTIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SANPHAM.TENSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SANPHAM.TENSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DONHANG.USER_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONHANG.USER_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

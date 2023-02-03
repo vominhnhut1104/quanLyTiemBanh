@@ -1,0 +1,458 @@
+﻿
+@{
+    List<DoAnWeb.Models.SANPHAM> listspmoi = ViewBag.Sanphammoi;
+    List<DoAnWeb.Models.f_slBan_Result> listslbanchay = ViewBag.SLBanchay;
+}
+<!-- banner -->
+<div class="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="carousel-caption text-center">
+                    <h3>
+                        Mẫu Bánh Mới
+                        <span>Bạn có muốn thử?</span>
+                    </h3>
+                    <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Mua Ngay</a>
+                </div>
+            </div>
+            <div class="carousel-item item2">
+                <div class="carousel-caption text-center">
+                    <h3>
+                        Bánh Sinh Nhật
+                        <span>Xem thêm các mẫu bánh nào</span>
+                    </h3>
+                    <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Đặt Ngay</a>
+
+                </div>
+            </div>
+            <div class="carousel-item item3">
+                <div class="carousel-caption text-center">
+                    <h3>
+                        Combo Cake & Coffee
+                        <span>Giảm giá cho Combo bánh và coffee </span>
+                    </h3>
+                    <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Mua ngay</a>
+
+                </div>
+            </div>
+            <div class="carousel-item item4">
+                <div class="carousel-caption text-center">
+                    <h3>
+                        Drink
+                        <span>Có đa dạng coffee và trà </span>
+                    </h3>
+                    <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Thử Ngay</a>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!--//banner -->
+</div>
+
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+    <div class="container-fluid">
+        <div class="inner-sec-shop px-lg-4 px-3">
+            <h3 class="tittle-w3layouts my-lg-4 my-4">Sản Phẩm Mới @ViewBag.Message </h3>
+            <div class="row">
+                <!-- sản phẩm mới -->
+                @foreach (var item in listspmoi)
+                {
+                    <div class="col-md-3 product-men women_two">
+                        <div class="product-googles-info googles">
+                            <div class="men-pro-item">
+                                <div class="men-thumb-item">
+                                    <img src="~/Content/images/@item.HINH" class="img-fluid" alt="">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="@Url.Action("Details","Home", new {id = item.MASP })" class="link-product-add-cart">Xem Sản Phẩm</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">New</span>
+                                </div>
+                                <div class="item-info-product">
+                                    <div class="info-product-price">
+                                        <div class="grid_meta">
+                                            <div class="product_price">
+                                                <h4>
+                                                    <a href="@Url.Action("Details","Home", new {id = item.MASP })">@item.TENSP</a>
+                                                </h4>
+                                                <div class="grid-price mt-2">
+                                                    <span class="money ">@item.GIA VNĐ</span>
+                                                </div>
+                                            </div>
+                                            <ul class="stars">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div id="GioHang" class="googles single-item hvr-outline-out">
+                                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = item.MASP, @strUrl = Request.Url.ToString() }))
+                                            {
+                                                <button type="submit" class="googles-cart pgoogles-cart">
+                                                    <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!--//row-->
+            <!--/meddle-->
+            <div class="row">
+                <div class="col-md-12 middle-slider my-4">
+                    <div class="middle-text-info ">
+
+                        <h3 class="tittle-w3layouts two text-center my-lg-4 mt-3">Ưu Đãi Học Sinh Sinh Viên</h3>
+                        <div class="simply-countdown-custom" id="simply-countdown-custom"></div>
+
+                    </div>
+                </div>
+            </div>
+            <!--//meddle-->
+            <!--/slide-->
+            <div class="slider-img mid-sec">
+                <!--//banner-sec-->
+                <div class="mid-slider">
+                    <div class="owl-carousel owl-theme row">
+                        @foreach (var item in listslbanchay)
+                        {
+                            <div class="item">
+                                <div class="gd-box-info text-center">
+                                    <div class="product-men women_two bot-gd">
+                                        <div class="product-googles-info slide-img googles">
+                                            <div class="men-pro-item">
+                                                <div class="men-thumb-item">
+                                                    <img src="/Content/images/@item.HINH" class="img-fluid" alt="">
+                                                    <div class="men-cart-pro">
+                                                        <div class="inner-men-cart-pro">
+                                                            <a href="@Url.Action("Details","Home", new {id = item.MASP })" class="link-product-add-cart">Xem Sản Phẩm</a>
+                                                        </div>
+                                                    </div>
+                                                    <span class="product-new-top">New</span>
+                                                </div>
+                                                <div class="item-info-product">
+
+                                                    <div class="info-product-price">
+                                                        <div class="grid_meta">
+                                                            <div class="product_price">
+                                                                <h4>
+                                                                    <a href="@Url.Action("Details","Home", new {id = item.MASP })"> @item.TENSP</a>
+                                                                </h4>
+                                                                <div class="grid-price mt-2">
+                                                                    <span class="money ">@item.GIA VNĐ</span>
+                                                                </div>
+                                                            </div>
+                                                            <ul class="stars">
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="googles single-item hvr-outline-out">
+                                                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = item.MASP, @strUrl = Request.Url.ToString() }))
+                                                            {
+                                                                <button type="submit" class="googles-cart pgoogles-cart">
+                                                                    <i class="fas fa-cart-plus"></i>
+                                                                </button>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- /testimonials -->
+            <div class="testimonials py-lg-4 py-3 mt-4">
+                <div class="testimonials-inner py-lg-4 py-3">
+                    <h3 class="tittle-w3layouts text-center my-lg-4 my-4">Khách Hàng Nói Gì?</h3>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        An Nguyễn
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>Quận 1</label>
+                                    <p>
+                                        "Dịch vụ tuyệt vời".
+                                        Tôi ấn tượng bởi những dịch vụ và đội ngũ nhân viên tuyệt vời của các bạn. Cảm ơn vì các sản phẩm và dịch vụ!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        Ngọc Trần
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>Quận 3</label>
+                                    <p>
+                                        "Trải nghiệm tuyệt vời".
+                                        Hương vị bánh hấp dẫn với ly coffee tuyệt nhất. Không thể quên hương vị từ lúa mạch và phô mai.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        Ryan
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>United States</label>
+                                    <p>
+                                        "Such Tasty Desserts".
+                                        Thật tuyệt vì có nhiều món bánh thật hấp dẫn. Bạn tôi rất thích món bánh Chesse. Chắc chắn sẽ đặt hàng lần nữa.
+                                    </p>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev test" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="fas fa-long-arrow-alt-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next test" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="fas fa-long-arrow-alt-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //testimonials -->
+            <div class="row galsses-grids pt-lg-5 pt-3">
+                <div class="col-lg-6 galsses-grid-left">
+                    <figure class="effect-lexi">
+                        <img src="~/Content/images/banner4.jpg" alt="" class="img-fluid">
+                        <figcaption>
+                            <h3>
+                                Editor's
+                                <span>Pick</span>
+                            </h3>
+                            <p> Express your style now.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-6 galsses-grid-left">
+                    <figure class="effect-lexi">
+                        <img src="~/Content/images/banner1.jpg" alt="" class="img-fluid">
+                        <figcaption>
+                            <h3>
+                                Editor's
+                                <span>Pick</span>
+                            </h3>
+                            <p>Express your style now.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- /grids -->
+            <div class="bottom-sub-grid-content py-lg-5 py-3">
+                <div class="row">
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+
+                            <span class="far fa-hand-paper"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Đảm Bảo Hài Lòng</h4>
+                        <p>Các sản phẩm đều được làm sau khi order. An toàn vệ sinh tuyệt đối</p>
+                        <p>
+                            <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Đặt Ngay</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+                            <span class="fas fa-rocket"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Giao Hàng Nhanh</h4>
+                        <p>Hỗ trợ khách hàng hết mình. Giao hàng nhanh nhất có thể.</p>
+                        <p>
+                            <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Đặt Ngay</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+                            <span class="far fa-sun"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Nhân Viên Phục Vụ</h4>
+                        <p>Thao tác nhanh lẹ. Kiểm tra Order liên tục </p>
+                        <p>
+                            <a href="~/Home/Shop" class="btn btn-sm animated-button gibson-three mt-4">Đặt Ngay</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                </div>
+            </div>
+            <!-- //grids -->
+            <!-- /clients-sec -->
+            <div class="testimonials p-lg-5 p-3 mt-4">
+                <div class="row last-section">
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>An Toàn Thực Phẩm</h3>
+                            <p>Sản phẩm mới, thơm ngon, hấp dẫn, bảo quản kỹ lưỡng</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Nguyên Liệu Chất Lượng</h3>
+                            <p>Được chọn lọc, kiểm tra để mang tới người dùng sản phẩm ngon</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Thanh Toán Khi Giao</h3>
+                            <p>Sử dụng các dịch vụ hỗ trợ tốt nhất cho khách hàng</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Giao Hàng Nhanh</h3>
+                            <p>Chỉ cần đặt là sẽ có hàng, thanh toán dễ dàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //clients-sec -->
+        </div>
+    </div>
+</section>
+<!-- about -->
+<!--Quảng cáo popup-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center p-5 mx-auto mw-100">
+                <h6>Tham gia bản tin của chúng tôi và nhận</h6>
+                <h3>Giảm 10% cho đơn hàng của bạn</h3>
+                <div class="login newsletter">
+                    <form action="~/Home/Index" method="post">
+                        <div class="form-group">
+                            <label class="mb-2">Email của bạn</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="" required="">
+                        </div>
+                        <button type="submit" class="btn btn-primary submit mb-4">Get 10% Off</button>
+                    </form>
+                    <p class="text-center">
+                        <a href="#">Không, cảm ơn. Tôi sẽ nhận vào lần khác </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.Message != null)
+{
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+
+        <!-- Then put toasts within -->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+    ViewBag.Message = null;
+}

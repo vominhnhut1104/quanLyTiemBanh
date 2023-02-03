@@ -1,0 +1,11 @@
+﻿
+@if (@ViewBag.TongSL != 0 && ViewBag.TongSL!= null)
+{
+    <a href="@Url.Action("GioHang", "GioHang")">
+        <span style="color: black">
+            <i class="fas fa-shopping-cart"></i>
+            Tổng Số Lượng: @ViewBag.TongSL
+        </span>
+    </a>
+}
+

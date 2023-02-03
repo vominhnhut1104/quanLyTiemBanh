@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DoAnWeb.Models.DONHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Ngày Đặt
+        </th>
+        <th>
+            Ngày Giao
+        </th>
+        <th>
+            Tổng Giá Tiền
+        </th>
+        <th>
+            Tên Người Mua
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYDAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYGIAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGGIATIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USER.USER_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh Sửa", "Edit", new { id=item.SODH }) |
+            @Html.ActionLink("Xem Chi Tiết", "Details", new { id=item.SODH }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.SODH })
+        </td>
+    </tr>
+}
+
+</table>

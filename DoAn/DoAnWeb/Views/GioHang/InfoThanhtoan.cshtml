@@ -1,0 +1,67 @@
+﻿@model DoAnWeb.Models.USER
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="register">
+    @Html.ValidationSummary(true)
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+            <div class="container">
+                <div class="inner-sec-shop px-lg-4 px-3">
+                    <h3 class="tittle-w3layouts my-lg-4 mt-3">Thông Tin Tài Khoản </h3>
+                    <div class="checkout-left row">
+                        <div class="col-md-8 address_form">
+                            <h4>Thông Tin</h4>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.USER_ID)
+                            <div>
+                                <span>Tên Người Dùng</span>
+                                @Html.EditorFor(model => model.USER_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.USER_NAME, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <span>Địa chỉ</span>
+                                @Html.EditorFor(model => model.DCHI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DCHI, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <span>Email</span>
+                                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <span>Số điện thoại</span>
+                                @Html.EditorFor(model => model.SODT, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SODT, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Allowed)
+                            </div>
+                            <div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.PASSWORD)
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Xác Nhận" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+</div>
+
+
+
+
+
+
+

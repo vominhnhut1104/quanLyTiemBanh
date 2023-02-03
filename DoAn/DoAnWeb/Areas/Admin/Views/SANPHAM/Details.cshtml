@@ -1,0 +1,83 @@
+﻿@model DoAnWeb.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SANPHAM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOISX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOISX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYCAPNHAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYCAPNHAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAISP.TENLOAISP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAISP.TENLOAISP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MASP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

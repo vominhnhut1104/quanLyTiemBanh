@@ -1,0 +1,268 @@
+﻿
+@{
+    List<DoAnWeb.Models.f_slBan_Result> listslbanchay = ViewBag.SLBanchay;
+}
+<head>
+    <link href="~/Content/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/Content/css/shop.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui1.css">
+    <link href="~/Content/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/Content/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet">
+</head>
+<body>
+    <!-- banner -->
+<div class="banner_inner">
+    <div class="services-breadcrumb">
+        <div class="inner_breadcrumb">
+
+            <ul class="short">
+                <li>
+                    <a href="~/Home/Index">Home</a>
+                    <i>|</i>
+                </li>
+                <li>Details</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!--//banner -->
+<!--/shop-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+    <div class="container">
+        <div class="inner-sec-shop pt-lg-4 pt-3">
+            <div class="row">
+                <div class="col-lg-4 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider1">
+
+                            <ul class="slides">
+                                <li data-thumb="~/Content/images/@Model.HINH">
+                                    <div class="thumb-image"> <img src="~/Content/images/@Model.HINH" data-imagezoom="true" class="img-fluid" alt=""> </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 single-right-left simpleCart_shelfItem">
+                    <h3>@Model.TENSP</h3>
+                    <p>
+                        <span class="item_price">Giá Tiền : @Model.GIA VNĐ</span>
+                    </p>
+                    <div class="rating1">
+                        <ul class="stars">
+                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div >
+                        <div class="googles single-item singlepage">
+                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = Model.MASP, @strUrl = Request.Url.ToString() }))
+                            {
+                                <button type="submit" class="googles-cart pgoogles-cart">
+                                    Thêm Vào Giỏ
+                                </button>
+                            }
+                        </div>
+                    </div>
+                    <ul class="footer-social text-left mt-lg-4 mt-3">
+                        <li>Chia Sẻ : </li>
+                        <li class="mx-2">
+                            <a href="#">
+                                <span class="fab fa-facebook-f"></span>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#">
+                                <span class="fab fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#">
+                                <span class="fab fa-google-plus-g"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+                <!--/tabs-->
+                <div class="responsive_tabs">
+                    <div id="horizontalTab">
+                        <ul class="resp-tabs-list">
+                            <li>Mô Tả & Đánh Giá</li> 
+                        </ul>
+                        <div class="resp-tabs-container">
+                            <!--/tab_one-->
+                            <div class="tab1">
+                                <div class="single_page">
+                                    <h6>@Model.TENSP</h6>
+                                    <p>
+                                        @Model.MOTA
+                                    </p>
+                                </div>
+                            </div>
+                            <!--//tab_one-->
+                            <div class="tab2">
+                                <div class="single_page">
+                                    <div class="bootstrap-tab-text-grids">
+                                        <div class="bootstrap-tab-text-grid">
+                                            <div class="bootstrap-tab-text-grid-left">
+                                                <img src="~/Content/images/baker.jpg" alt="" class="img-fluid">
+                                            </div>
+                                            <div class="bootstrap-tab-text-grid-right">
+                                                <ul>
+                                                    <li><a href="#">Admin</a></li>
+                                                    <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+                                                </ul>
+                                                <p>
+                                                    Có đa dạng loại bánh. Bạn hãy thử cùng nào!
+                                                </p>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="add-review">
+                                            <h4>Thêm nhận xét</h4>
+                                            <form action="#" method="post">
+                                                <input class="form-control" type="text" name="Tên" placeholder="Nhập tên bạn..." required="">
+                                                <input class="form-control" type="email" name="Email" placeholder="Nhập Email..." required="">
+                                                <textarea name="Message" required=""></textarea>
+                                                <input type="submit" value="Gửi">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--//tabs-->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!--/slide-->
+        <div class="slider-img mid-sec mt-lg-5 mt-2 px-lg-5 px-3">
+            <!--//banner-sec-->
+            <h3 class="tittle-w3layouts text-left my-lg-4 my-3">Các sản phẩm bán chạy</h3>
+            <div class="mid-slider">
+                <div class="owl-carousel owl-theme row">
+                    @foreach (var item in listslbanchay)
+                    {
+                        <div class="item">
+                            <div class="gd-box-info text-center">
+                                <div class="product-men women_two bot-gd">
+                                    <div class="product-googles-info slide-img googles">
+                                        <div class="men-pro-item">
+                                            <div class="men-thumb-item">
+                                                <img src="~/Content/images/@item.HINH" class="img-fluid" alt="">
+                                                <div class="men-cart-pro">
+                                                    <div class="inner-men-cart-pro">
+                                                        <a href="@Url.Action("Details","Home", new {id = item.MASP })" class="link-product-add-cart">Xem Sản Phẩm</a>
+                                                    </div>
+                                                </div>
+                                                <span class="product-new-top">New</span>
+                                            </div>
+                                            <div class="item-info-product">
+
+                                                <div class="info-product-price">
+                                                    <div class="grid_meta">
+                                                        <div class="product_price">
+                                                            <h4>
+                                                                <a href="@Url.Action("Details","Home", new {id = item.MASP })"> @item.TENSP</a>
+                                                            </h4>
+                                                            <div class="grid-price mt-2">
+                                                                <span class="money ">@item.GIA VNĐ</span>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="stars">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="googles single-item hvr-outline-out">
+                                                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = item.MASP, @strUrl = Request.Url.ToString() }))
+                                                        {
+                                                            <button type="submit" class="googles-cart pgoogles-cart">
+                                                                <i class="fas fa-cart-plus"></i>
+                                                            </button>
+                                                        }
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!--//slider-->
+    </div>
+</section>
+
+    <!-- single -->
+<script src="~/Content/js/imagezoom.js"></script>
+<!-- single -->
+<!-- script for responsive tabs -->
+<script src="~/Content/js/easy-responsive-tabs.js"></script>
+<script>
+			$(document).ready(function () {
+				$('#horizontalTab').easyResponsiveTabs({
+					type: 'default', //Types: default, vertical, accordion
+					width: 'auto', //auto or any width like 600px
+					fit: true, // 100% fit in a container
+					closed: 'accordion', // Start closed if in accordion view
+					activate: function (event) { // Callback function if tab is switched
+						var $tab = $(this);
+						var $info = $('#tabInfo');
+						var $name = $('span', $info);
+						$name.text($tab.text());
+						$info.show();
+					}
+				});
+				$('#verticalTab').easyResponsiveTabs({
+					type: 'vertical',
+					width: 'auto',
+					fit: true
+				});
+			});
+</script>
+</body>

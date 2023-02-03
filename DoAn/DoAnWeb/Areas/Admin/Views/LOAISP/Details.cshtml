@@ -1,0 +1,27 @@
+﻿@model DoAnWeb.Models.LOAISP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LOAISP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENLOAISP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENLOAISP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MALOAISP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,404 @@
+﻿@{
+    List<DoAnWeb.Models.SANPHAM> listcake = ViewBag.cake;
+    List<DoAnWeb.Models.f_slBan_Result> listslbanchay = ViewBag.SLBanchay;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+    </script>
+    <link href="~/Content/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/Content/css/shop.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.css" type="text/css" media="all">
+    <link href="~/Content/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="banner_inner">
+        <div class="services-breadcrumb">
+            <div class="inner_breadcrumb">
+
+                <ul class="short">
+                    <li>
+                        <a href="~/Home/Index">Home</a>
+                        <i>|</i>
+                    </li>
+                    <li>Shop</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!--//banner -->
+    <!--/shop-->
+    <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+        <div class="container-fluid">
+            <div class="inner-sec-shop px-lg-4 px-3">
+                <h3 class="tittle-w3layouts my-lg-4 mt-3">Các sản phẩm dành cho bạn </h3>
+                <div class="row">
+                    <!-- product left -->
+                    <div class="side-bar col-lg-3">
+                        <div class="search-hotel">
+                            <h3 class="agileits-sear-head">Search Here..</h3>
+                            <form action="~/Home/Search?@Request["search"]" method="get">
+                                <input class="form-control" type="search" name="search" id="search" placeholder="Search here..." required="">
+                                <button class="btn1">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="clearfix"> </div>
+                            </form>
+                        </div>
+                        <!-- price range -->
+                        <div class="range">
+                            <h3 class="agileits-sear-head">Sắp xếp giá</h3>
+                            <select class="custom-select" id="UrlList" onchange="doNavigate()">
+                                <option value="">Chọn sắp xếp</option>
+                                <option value="@Url.Action("Shop","Home")">Mặc Định</option>
+                                <option value="@Url.Action("Sorttd","Home", new { sort = ViewBag.Allsp })">Giá tiền tăng dần</option>
+                                <option value="@Url.Action("Sortgd","Home", new { sort = ViewBag.Allsp })">Giá tiền giảm dần</option>
+                            </select>
+                        </div>
+                        <!-- //price range -->
+                        <!-- discounts -->
+                        <!-- //discounts -->
+                        <!-- reviews -->
+                        <!-- //reviews -->
+                        <!-- deals -->
+                        <!-- //deals -->
+                    </div>
+                    <!-- //product left -->
+                    <!--/product right-->
+                    <div class="left-ads-display col-lg-9">
+                        <div class="wrapper_top_shop">
+                            <div class="row">
+                                <div class="col-md-6 shop_left">
+                                    <img src="~/Content/images/banner3.jpg" alt="">
+                                    <h6>40% off</h6>
+                                </div>
+                                <div class="col-md-6 shop_right">
+                                    <img src="~/Content/images/banner4.jpg" alt="">
+                                    <h6>50% off</h6>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <!-- /Sản phẩm -->
+                                @foreach (var item in listcake)
+                                {
+                                    <div class="col-md-3 product-men women_two shop-gd">
+                                        <div class="product-googles-info googles">
+                                            <div class="men-pro-item">
+                                                <div class="men-thumb-item">
+                                                    <img src="~/Content/images/@item.HINH" class="img-fluid" alt="">
+                                                    <div class="men-cart-pro">
+                                                        <div class="inner-men-cart-pro">
+                                                            <a href="@Url.Action("Details","Home", new {id = item.MASP })" class="link-product-add-cart">Xem sản phẩm</a>
+                                                        </div>
+                                                    </div>
+                                                    <span class="product-new-top">New</span>
+                                                </div>
+                                                <div class="item-info-product">
+                                                    <div class="info-product-price">
+                                                        <div class="grid_meta">
+                                                            <div class="product_price">
+                                                                <h4>
+                                                                    <a href="@Url.Action("Details","Home", new {id = item.MASP })">@item.TENSP</a>
+                                                                </h4>
+                                                                <div class="grid-price mt-2">
+                                                                    <span class="money ">@item.GIA VNĐ</span>
+                                                                </div>
+                                                            </div>
+                                                            <ul class="stars">
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="googles single-item hvr-outline-out">
+                                                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = item.MASP, @strUrl = Request.Url.ToString() }))
+                                                            {
+                                                                <button type="submit" class="googles-cart pgoogles-cart">
+                                                                    <i class="fas fa-cart-plus"></i>
+                                                                </button>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <!--//product right-->
+                </div>
+                <!--/slide-->
+                <div class="slider-img mid-sec mt-lg-5 mt-2">
+                    <!--//banner-sec-->
+                    <h3 class="tittle-w3layouts text-left my-lg-4 my-3">Sản phẩm ưa chuộng</h3>
+                    <div class="mid-slider">
+                        <div class="owl-carousel owl-theme row">
+                            @foreach (var item in listslbanchay)
+                            {
+                                <div class="item">
+                                    <div class="gd-box-info text-center">
+                                        <div class="product-men women_two bot-gd">
+                                            <div class="product-googles-info slide-img googles">
+                                                <div class="men-pro-item">
+                                                    <div class="men-thumb-item">
+                                                        <img src="~/Content/images/@item.HINH" class="img-fluid" alt="">
+                                                        <div class="men-cart-pro">
+                                                            <div class="inner-men-cart-pro">
+                                                                <a href="@Url.Action("Details","Home", new {id = item.MASP })" class="link-product-add-cart">Xem Sản Phẩm</a>
+                                                            </div>
+                                                        </div>
+                                                        <span class="product-new-top">New</span>
+                                                    </div>
+                                                    <div class="item-info-product">
+
+                                                        <div class="info-product-price">
+                                                            <div class="grid_meta">
+                                                                <div class="product_price">
+                                                                    <h4>
+                                                                        <a href="@Url.Action("Details","Home", new {id = item.MASP })"> @item.TENSP</a>
+                                                                    </h4>
+                                                                    <div class="grid-price mt-2">
+                                                                        <span class="money ">@item.GIA VNĐ</span>
+                                                                    </div>
+                                                                </div>
+                                                                <ul class="stars">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="googles single-item hvr-outline-out">
+                                                                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @gMASP = item.MASP, @strUrl = Request.Url.ToString() }))
+                                                                {
+                                                                    <button type="submit" class="googles-cart pgoogles-cart">
+                                                                        <i class="fas fa-cart-plus"></i>
+                                                                    </button>
+                                                                }
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!--//slider-->
+            </div>
+        </div>
+    </section>
+
+    <!--jQuery-->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- newsletter modal -->
+    <!--search jQuery-->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/classie-search.js"></script>
+    <script src="js/demo1-search.js"></script>
+    <!--//search jQuery-->
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script>
+			googles.render();
+
+			googles.cart.on('googles_checkout', function (evt) {
+				var items, len, i;
+
+				if (this.subtotal() > 0) {
+					items = this.items();
+
+					for (i = 0, len = items.length; i < len; i++) {}
+				}
+			});
+    </script>
+    <!-- //cart-js -->
+    <script>
+			$(document).ready(function () {
+				$(".button-log a").click(function () {
+					$(".overlay-login").fadeToggle(200);
+					$(this).toggleClass('btn-open').toggleClass('btn-close');
+				});
+			});
+			$('.overlay-close1').on('click', function () {
+				$(".overlay-login").fadeToggle(200);
+				$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+				open = false;
+			});
+    </script>
+    <!-- carousel -->
+    <!-- price range (top products) -->
+    <script src="js/jquery-ui.js"></script>
+    <script>
+			//<![CDATA[
+			$(window).load(function () {
+				$("#slider-range").slider({
+					range: true,
+					min: 0,
+					max: 9000,
+					values: [50, 6000],
+					slide: function (event, ui) {
+						$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+					}
+				});
+				$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+			}); //]]>
+    </script>
+    <!-- //price range (top products) -->
+
+    <script src="js/owl.carousel.js"></script>
+    <script>
+			$(document).ready(function () {
+				$('.owl-carousel').owlCarousel({
+					loop: true,
+					margin: 10,
+					responsiveClass: true,
+					responsive: {
+						0: {
+							items: 1,
+							nav: true
+						},
+						600: {
+							items: 2,
+							nav: false
+						},
+						900: {
+							items: 3,
+							nav: false
+						},
+						1000: {
+							items: 4,
+							nav: true,
+							loop: false,
+							margin: 20
+						}
+					}
+				})
+			})
+    </script>
+
+    <!-- //end-smooth-scrolling -->
+    <!-- dropdown nav -->
+    <script>
+			$(document).ready(function () {
+				$(".dropdown").hover(
+					function () {
+						$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+						$(this).toggleClass('open');
+					},
+					function () {
+						$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+						$(this).toggleClass('open');
+					}
+				);
+			});
+    </script>
+    <!-- //dropdown nav -->
+    <script src="js/move-top.js"></script>
+    <script src="js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear'
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+    <script src="js/bootstrap.js"></script>
+    <!-- js file -->
+</body>
+
+</html>
